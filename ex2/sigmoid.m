@@ -10,7 +10,8 @@ g = zeros(size(z));
 %               vector or scalar).
 
 
-
+% Función Sigmoid para g(z)
+g = 1./(1.+ exp(-z));
 
 
 % =============================================================

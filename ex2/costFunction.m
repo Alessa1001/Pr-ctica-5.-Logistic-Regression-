@@ -21,7 +21,12 @@ grad = zeros(size(theta));
 %
 
 
+% Función para el costo
+h = sigmoid(X*theta);
+J = ((-y)'*log(h)-(1-y)'*log(1-h))/m;
 
+% Función para calcular el gradiente
+grad = (X'*(h - y))/m;
 
 
 
