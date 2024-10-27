@@ -18,6 +18,16 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 
+% Función para calcular el costo regularizado
+h = sigmoid(X * theta);
+
+% no se regulariza el primer valor de theta
+theta1 = [0; theta(2:end)];
+reg = lambda*(theta1'*theta1)/(2 * m);
+J = ((-y)'*log(h)-(1-y)'*log(1-h))/m+reg;
+
+% Función para calcular el gradiente
+grad = (X'*(h-y)+lambda*theta1)/m;
 
 
 
